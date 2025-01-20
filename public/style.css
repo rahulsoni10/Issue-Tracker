@@ -1,0 +1,228 @@
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #EFF6E0; /* Changed */
+    color: #01161E; /* Changed */
+}
+
+.container {
+    display: flex;
+    min-height: 80vh;
+}
+
+/* Header */
+header {
+    background-color: #124559; /* Changed */
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 40px;
+    margin-right: 10px;
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin: 0;
+}
+
+header nav button {
+    background-color: #EFF6E0; /* Changed */
+    color: #124559; /* Changed */
+    border: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Sidebar */
+aside {
+    background-color: #01161E; /* Changed */
+    color: #fff;
+    width: 200px;
+    padding: 20px;
+}
+
+aside ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+aside li a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    transition: background-color 0.3s;
+}
+
+aside li a:hover,
+aside li a.active {
+    background-color: #124559; /* Changed */
+}
+
+aside li a i {
+    margin-right: 10px;
+}
+
+/* Main Content */
+main {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+main h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.chart-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.chart {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px; /* Reduced padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative; 
+    overflow: hidden; 
+    min-height: 340px; /* Use min-height */
+    box-sizing: border-box; /* Include padding in height calculation */
+}
+
+.chart h3 {
+    margin-top: 0;
+}
+
+.chart canvas {
+    display: block;
+    max-width: 100%;
+    max-height: 280px; /* Limit canvas height */
+}
+
+/* Forms */
+form {
+    width: 80%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="text"],
+textarea,
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    min-height: 120px;
+}
+
+form button {
+    background-color: #124559; /* Changed */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Footer */
+footer {
+    background-color: #AEC3B0; /* Changed */
+    color: #01161E; /* Changed */
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.user-profile {
+    display: flex;
+    align-items: center;
+}
+
+.user-profile img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.user-info {
+    font-size: 0.9em;
+}
+
+.user-info a {
+    color: #124559; /* Changed */
+    text-decoration: none;
+}
+
+/* Active Section */
+section {
+    display: none;
+}
+
+section.active-section {
+    display: block;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    aside {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .chart-container {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        width: 95%;
+    }
+
+    footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .user-profile {
+        margin-top: 10px;
+    }
+}

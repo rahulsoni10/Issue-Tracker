@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrackIssue</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+
+    <header class="bg-blue-500 text-white p-4 flex justify-between items-center">
+        <div class="logo flex items-center">
+            <img src="https://i.ibb.co/R6cpBSB/images1.png" alt="TrackIssue Logo" class="w-10 h-10 mr-2">
+            <h1 class="text-lg font-semibold">TrackIssue</h1>
+        </div>
+        <nav>
+            <button id="newIssueBtn" class="bg-white text-blue-500 px-4 py-2 rounded-md font-semibold mr-2 hover:bg-blue-100 transition-colors duration-300 ease-in-out">New Issue</button>
+            <button id="resolvedIssueBtn" class="bg-white text-blue-500 px-4 py-2 rounded-md font-semibold hover:bg-blue-100 transition-colors duration-300 ease-in-out">Resolved Issue</button>
+        </nav>
+    </header>
+
+    <div class="container flex">
+        <aside class="bg-gray-800 text-white w-64 p-4">
+            <ul>
+                <li><a href="#dashboard" class="active block p-2 hover:bg-gray-700"><i class="fas fa-chart-pie mr-2"></i> Dashboard</a></li>
+                <li><a href="#issues" class="block p-2 hover:bg-gray-700"><i class="fas fa-list mr-2"></i> Issues</a></li>
+            </ul>
+        </aside>
+
+        <main class="flex-1 p-4 min-h-[00px]"> 
+            <section id="dashboard" class="active-section">
+                <h2 class="text-2xl font-bold mb-4">Dashboard</h2>
+                <div class="chart-container grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="chart">
+                        <h3 class="text-xl font-semibold mb-4">Issues by Severity</h3>
+                        <canvas id="severityChart"></canvas>
+                    </div>
+                    <div class="chart">
+                        <h3 class="text-xl font-semibold mb-4">Issues by Status</h3>
+                        <canvas id="statusChart"></canvas>
+                    </div>
+                    <div class="chart">
+                        <h3 class="text-xl font-semibold mb-4">No. of Issues Over Time</h3>
+                        <canvas id="timeChart"></canvas>
+                    </div>
+                    <div class="chart">
+                        <h3 class="text-xl font-semibold mb-4">Issues by Assignee</h3>
+                        <canvas id="assigneeChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <section id="issues" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Issues</h2>
+                <div id="issuesList"></div>
+            </section>
+
+            <section id="newIssueForm" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Create New Issue</h2>
+                <form id="newForm" class="space-y-4">
+                    <div>
+                        <label for="newName" class="block mb-2">Name:</label>
+                        <input type="text" id="newName" name="name" required class="w-full p-2 border rounded">
+                    </div>
+                    <div>
+                        <label for="newTitle" class="block mb-2">Title:</label>
+                        <input type="text" id="newTitle" name="title" required class="w-full p-2 border rounded">
+                    </div>
+                    <div>
+                        <label for="newDescription" class="block mb-2">Description:</label>
+                        <textarea id="newDescription" name="description" required class="w-full p-2 border rounded"></textarea>
+                    </div>
+                    <div>
+                        <label for="newSeverity" class="block mb-2">Severity:</label>
+                        <select id="newSeverity" name="severity" class="w-full p-2 border rounded">
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                            <option value="Severe">Severe</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="bg-blue-500 text-white p-2 rounded hover:bg-blue-700">Create Issue</button>
+                </form>
+            </section>
+
+            <section id="resolvedIssueForm" style="display: none;">
+                <h2 class="text-2xl font-bold mb-4">Mark Issue as Resolved</h2>
+                <form id="resolveForm" class="space-y-4">
+                    <div>
+                        <label for="resolvedId" class="block mb-2">ID of Resolved Issue:</label>
+                        <input type="text" id="resolvedId" name="resolvedId" required class="w-full p-2 border rounded">
+                    </div>
+                    <button type="submit" class="bg-green-500 text-white p-2 rounded hover:bg-green-700">Mark as Resolved</button>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <footer class="bg-gray-200 p-4 mt-6 flex justify-between items-center">
+        <p>&copy; 2023 TrackIssue. All rights reserved.</p>
+        <div class="user-profile flex items-center">
+            <img src="https://i.ibb.co/rd77Y5f/Rahul-Soni-Profile-pic.jpg"
+                alt="User Profile" class="w-10 h-10 rounded-full mr-2">
+            <div class="user-info">
+                <p class="font-medium">Rahul Soni</p>
+                <a href="https://www.linkedin.com/in/rahulsoni10/" class="text-blue-500 hover:underline">View profile</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
